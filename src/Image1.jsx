@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
-import "./App.css";
-
-function Text({setInputValue,inputValue ,TextValue}) {
-
+import React from 'react'
+import { useEffect } from 'react'
+function Image1({Image}) {
   useEffect(() => {
-  const items = document.querySelectorAll(".text_input");
+  const items = document.querySelectorAll(".image_input");
 
   items.forEach((item) => {
     let offsetX = 0;
@@ -35,21 +33,17 @@ function Text({setInputValue,inputValue ,TextValue}) {
       document.removeEventListener("mouseup", mouseUp);
     };
   });
-}, [TextValue]);
-
-
+}, [Image]);
   return (
-      <input
+    <input
       contentEditable="true"
-        className="text_input"
-        placeholder="Enter Text"
-        value={inputValue}
+        className="image_input"
         draggable
-        style={{height:"30px" ,width:"100px" ,position:"absolute"}}
-        onChange={(e) => setInputValue(e.target.value)}
-        type="text"
+        style={{height:"30px" ,width:"140px" ,position:"absolute",cursor:"grab"}}
+        type="file"
       />
-  );
+    
+  )
 }
 
-export default Text;
+export default Image1

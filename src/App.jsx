@@ -13,6 +13,7 @@ function App() {
   const [Sign,setSign]=useState(null);
   const [RadioValue,setRadioValue]=useState(null);
   const[inputValue,setInputValue]=useState("");
+  const [List,setList]=useState([]);
   
   return (
     <div className="MainApp">
@@ -20,11 +21,13 @@ function App() {
         <div className="app">
           <div className="HAndDrag">
           <h1>BoloEsign</h1>
-          <Drag setTextValue={setTextValue} setDate={setDate} setImage={setImage} setSign={setSign} setRadioValue={setRadioValue} />
+          <Drag setList={setList} setTextValue={setTextValue} setDate={setDate} setImage={setImage} setSign={setSign} setRadioValue={setRadioValue} />
           </div>
           <div className="RightOne" >
             <h2 style={{ marginLeft: '600px'}}>Editor</h2>
-              <Right setTextValue={setTextValue} TextValue={TextValue} Date={Date} Image={Image} Sign={Sign} RadioValue={RadioValue} inputValue={inputValue} setInputValue={setInputValue}/>
+              <Right List={List} setTextValue={setTextValue} setInputValue={setInputValue} TextValue={TextValue}
+               Date={Date} Image={Image} Sign={Sign} RadioValue={RadioValue} inputValue={inputValue} 
+              setDate={setDate} setImage={setImage} setSign={setSign} setRadioValue={setRadioValue} />
         </div>
         </div>
     </div>

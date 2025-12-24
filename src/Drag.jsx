@@ -1,27 +1,27 @@
 import React from 'react'
 import './App.css'
 import Text from './Text1.jsx'
-function Drag({setTextValue,setDate,setImage,setSign,setRadioValue}) {
+function Drag({setList,setTextValue,setDate,setImage,setSign,setRadioValue}) {
     const Text=()=>{
-      // alert("Text Box Dragged");
+      setList((prevList)=>[...prevList,"text"]);
       setTextValue("text");
     }
     const Image1=()=>{
-        // alert("Image Box Dragged");
+      setList((prevList)=>[...prevList,"image1"]);
         setImage("image1");
         
     }
     const Sign1=()=>{
-        // alert("Sign Box Dragged");
-        setSign("sign1");
+      setList((prevList)=>[...prevList,"sign1"]);
+      setSign("sign1");
     }
     const Date1=()=>{
-        // alert("Date Box Dragged");
-        setDate("date1");
+      setList((prevList)=>[...prevList,"date1"]);
+      setDate("date1");
     }
     const Radio1=()=>{
-        // alert("Radio Box Dragged");
-        setRadioValue("radio1");
+      setList((prevList)=>[...prevList,"radio1"]);
+      setRadioValue("radio1");
     }
   return (
     <div className='initial'>

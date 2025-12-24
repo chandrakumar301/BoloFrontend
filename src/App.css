@@ -1,71 +1,25 @@
 body{
   background-color: lightgrey;
-  position: relative;
 }
 .app{
   display: flex;
   direction: column;
-  /* align-items: flex-start; */
   justify-content: flex-start;
 }
-.date_input{
-  height: 30px;
-  -webkit-user-drag: element;
-  cursor: pointer;
-  width: 150px;
-  margin-left: 20px;
-  border: 2px dotted black;
-  background-color: whitesmoke;
-  text-align: center;
-  font-size: 20px;
-  color: black;
-}
-.sign_input{
-  height: 30px;
-  -webkit-user-drag: element;
-  cursor: pointer;
-  width: 100px;
-  margin-left: 20px;
-  border: 2px dotted black;
-  background-color: whitesmoke;
-  text-align: center;
-  font-size: 25px;
-  color: black;
-}
-.editorPage{
+.editorPage {
+  display: flex;
+  flex-direction: row;
+  position: absolute;   
   overflow-x: scroll;
   overflow-y: scroll;
-  height: 700px;
-  width:700px;
+  height: 500px;
+  width: 700px;
   background-color: white;
   margin-left: 300px;
-  margin-top: 70px;
+  margin-top: 0px;
+  gap: 20px;
   border: 2px solid black;
   box-shadow: 5px 5px 5px grey;
-}
-.image_input{
-  height: fit-content;
-  -webkit-user-drag: element;
-  cursor: pointer;
-  width:fit-content;
-  margin-left: 20px;
-  border: 2px dotted black;
-  background-color: whitesmoke;
-  text-align: center;
-  font-size: 15px;
-  color: black;
-}
-.radio_input{
-  height: 20px;
-  -webkit-user-drag: element;
-  cursor: pointer;
-  width: 20px;
-  margin-left: 20px;
-  border: 2px dotted black;
-  background-color: whitesmoke;
-  text-align: center;
-  font-size: 15px;
-  color: black;
 }
 .MainApp{
   display: flex;
@@ -94,27 +48,9 @@ body{
   margin-left: 20px;
 
 }
-.textPage input{
-  height: 30px;
-  position: absolute;
-  -webkit-user-drag: element;
-  /* cursor: pointer; */
-  width: 100px;
-  margin-left: 20px;
-  border: 2px dotted black;
-  background-color: whitesmoke;
-  text-align: center;
-  font-size: 25px;
-  color: black;
-  resize: both;
-  min-width: 20px;
-  min-height: 20px;
-  cursor:grab;
 
-}
 .textPage input.dragging{
   cursor: grabbing;
-
   opacity: 0.5;
 }
 .dragItems div{

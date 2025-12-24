@@ -1,42 +1,135 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body{
+  background-color: lightgrey;
+  position: relative;
+}
+.app{
+  display: flex;
+  direction: column;
+  /* align-items: flex-start; */
+  justify-content: flex-start;
+}
+.date_input{
+  height: 30px;
+  -webkit-user-drag: element;
+  cursor: pointer;
+  width: 150px;
+  margin-left: 20px;
+  border: 2px dotted black;
+  background-color: whitesmoke;
   text-align: center;
+  font-size: 20px;
+  color: black;
 }
+.sign_input{
+  height: 30px;
+  -webkit-user-drag: element;
+  cursor: pointer;
+  width: 100px;
+  margin-left: 20px;
+  border: 2px dotted black;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 25px;
+  color: black;
+}
+.editorPage{
+  overflow-x: scroll;
+  overflow-y: scroll;
+  height: 700px;
+  width:700px;
+  background-color: white;
+  margin-left: 300px;
+  margin-top: 70px;
+  border: 2px solid black;
+  box-shadow: 5px 5px 5px grey;
+}
+.image_input{
+  height: fit-content;
+  -webkit-user-drag: element;
+  cursor: pointer;
+  width:fit-content;
+  margin-left: 20px;
+  border: 2px dotted black;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 15px;
+  color: black;
+}
+.radio_input{
+  height: 20px;
+  -webkit-user-drag: element;
+  cursor: pointer;
+  width: 20px;
+  margin-left: 20px;
+  border: 2px dotted black;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 15px;
+  color: black;
+}
+.MainApp{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.Nav{
+  display: flex;
+  direction: row;
+  gap: 20px;
+  height: 100px;
+  width : 1520px;
+  margin-left: 10px;
+  align-items: center;
+  background-color: white;
+  justify-content: space-around;
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px blue;
+}
+.dragItems{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 600px;
+  width: 200px;
+  margin-left: 20px;
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+.textPage input{
+  height: 30px;
+  position: absolute;
+  -webkit-user-drag: element;
+  /* cursor: pointer; */
+  width: 100px;
+  margin-left: 20px;
+  border: 2px dotted black;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 25px;
+  color: black;
+  resize: both;
+  min-width: 20px;
+  min-height: 20px;
+  cursor:grab;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
+.textPage input.dragging{
+  cursor: grabbing;
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  opacity: 0.5;
 }
-
-.card {
-  padding: 2em;
+.dragItems div{
+  height: 50px;
+  border: 2px;
+  width: 300px;
+  background-color: tomato;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  cursor: pointer;
+  align-content: center;
+  text-align: center;
+  font-size: 25px;
 }
-
-.read-the-docs {
-  color: #888;
+.dragItems div:hover{
+  background-color: orange;
+  scale: 1.05;
 }

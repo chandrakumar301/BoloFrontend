@@ -1,19 +1,32 @@
-import { useEffect, useState } from "react";
 
+import "./App.css";
+import Right from "./Right.jsx";
+import React from "react";
+import { useState } from "react";
+import ToolBar from "./ToolBar.jsx";
+import Drag from "./Drag.jsx";
+import Text1 from "./Text1.jsx";
 function App() {
-  const [msg, setMsg] = useState("");
-
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/`)
-      .then(res => res.text())
-      .then(data => setMsg(data))
-      .catch(err => console.error(err));
-  }, []);
-
+  const [TextValue,setTextValue]=useState(null);
+  const [Date,setDate]=useState(null);
+  const [Image,setImage]=useState(null);
+  const [Sign,setSign]=useState(null);
+  const [RadioValue,setRadioValue]=useState(null);
+  const[inputValue,setInputValue]=useState("");
+  
   return (
-    <div>
-      <h1>Welcome</h1>
-      <p>{msg}</p>
+    <div className="MainApp">
+      <ToolBar />
+        <div className="app">
+          <div className="HAndDrag">
+          <h1>BoloEsign</h1>
+          <Drag setTextValue={setTextValue} setDate={setDate} setImage={setImage} setSign={setSign} setRadioValue={setRadioValue} />
+          </div>
+          <div className="RightOne" >
+            <h2 style={{ marginLeft: '600px'}}>Editor</h2>
+              <Right setTextValue={setTextValue} TextValue={TextValue} Date={Date} Image={Image} Sign={Sign} RadioValue={RadioValue} inputValue={inputValue} setInputValue={setInputValue}/>
+        </div>
+        </div>
     </div>
   );
 }

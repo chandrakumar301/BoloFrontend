@@ -40,7 +40,7 @@ function Date1({Date}) {
       contentEditable="true"
         className="date_input"
         draggable
-        style={{height:"30px" ,width:"140px" ,position:"absolute",cursor:"grab"}}
+        style={{height:"30px" ,width:"140px"  ,position:"absolute",cursor:"grab"}}
         type="date"
       />
   )

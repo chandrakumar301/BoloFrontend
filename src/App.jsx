@@ -6,7 +6,9 @@ import { useState } from "react";
 import ToolBar from "./ToolBar.jsx";
 import Drag from "./Drag.jsx";
 import Text1 from "./Text1.jsx";
+// import jsPDF from "jspdf";
 function App() {
+  const [Down,setDown]=useState(false);
   const [TextValue,setTextValue]=useState(null);
   const [Date,setDate]=useState(null);
   const [Image,setImage]=useState(null);
@@ -17,7 +19,7 @@ function App() {
   
   return (
     <div className="MainApp">
-      <ToolBar />
+      <ToolBar setDown={setDown } Down={Down}/>
         <div className="app">
           <div className="HAndDrag">
           <h1>BoloEsign</h1>
@@ -27,7 +29,7 @@ function App() {
             <h2 style={{ marginLeft: '600px'}}>Editor</h2>
               <Right List={List} setTextValue={setTextValue} setInputValue={setInputValue} TextValue={TextValue}
                Date={Date} Image={Image} Sign={Sign2} RadioValue={RadioValue} inputValue={inputValue} 
-              setDate={setDate} setImage={setImage} setSign2={setSign2} setRadioValue={setRadioValue} />
+              setDate={setDate} setImage={setImage} setSign2={setSign2} setRadioValue={setRadioValue} Down={Down} setDown={setDown}/>
         </div>
         </div>
     </div>

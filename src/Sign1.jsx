@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 // import { useRef } from "react";
 
-function SignCanvas() {
+function Sign() {
   const abc=useRef(false);
   const canvas=useRef(null);
   const Down = () => {
@@ -49,4 +49,4 @@ function SignCanvas() {
   );
 }
 
-export default SignCanvas;
+export default Sign;

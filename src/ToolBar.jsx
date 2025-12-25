@@ -1,15 +1,23 @@
 import React from 'react'
 import './App.css'
-const ToolBar = () => {
+import { useEffect } from 'react'
+const ToolBar = ({setDown,Down}) => {
+
+  useEffect(()=>{
+    if(Down===true){
+    // alert("chandra");
+    // setDown(false);
+  }
+  })
   return (
     <div className='chandra'>
-      <nav className='Nav'>
+      <div className='Nav'>
         <h2>Project Name</h2>
-        <a href="#preview">Preview</a>
-        <a href="#save">Save</a>
-        <a href="#send">Send</a>
-        <a href="#Download">Download</a>
-      </nav>
+        <button>Preview</button>
+        <button>Save</button>
+        <button>Send</button>
+        <button className='PDF' onClick={()=>{setDown(true)}}>Download</button>
+      </div>
     </div>
   )
 }

@@ -5,7 +5,8 @@ import App from './App.jsx'
 import Drag from './Drag.jsx'
 import Date1 from './Date1.jsx'
 import Image1 from './Image1.jsx'
-const Right = ({List,TextValue,Date,Image}) => {
+import Sign1 from './Sign1.jsx'
+const Right = ({List,TextValue,Date,Image,Sign2}) => {
     // let offsetX=0;
     // let offsetY=0;
     // let drag=false;
@@ -89,7 +90,7 @@ const Right = ({List,TextValue,Date,Image}) => {
 
   return (
         <div className="editorPage">
-      {List.map((item, index) => {
+      {List.map((item) => {
         if (item === "text") {
           return (<Text1 TextValue={TextValue}/>);}
 
@@ -101,40 +102,10 @@ const Right = ({List,TextValue,Date,Image}) => {
           return (<Image1 Image={Image}/>);
         }
         if (item === "sign1") {
-          return (
-            <input
-              key={index}
-              type="text"
-              draggable
-              className="sign_input"
-              style={{
-                position: "absolute",
-                top: `${index * 40}px`,
-              }}
-            />
-          );
+          return (<Sign1 Sign2={Sign2}/>);
         }
         if (item === "radio1") {
-          return (
-            <input
-              key={index}
-              type="radio"
-              draggable
-              className="radio_input"
-              style={{
-                position: "absolute",
-                top: `${index * 40}px`,
-                cursor: "pointer",
-                width: "20px",
-                height: "20px",
-                border: "2px dotted black",
-                backgroundColor: "whitesmoke",
-                color: "black",
-                fontSize: "15px",
-                textAlign: "center",
-              }}
-            />
-          );
+          return (<Radio />);
         }
 
         return null;

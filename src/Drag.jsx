@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import Text from './Text1.jsx'
-function Drag({setList,setTextValue,setDate,setImage,setSign,setRadioValue}) {
+function Drag({setList,setTextValue,setDate,setImage,setSign2,setRadioValue}) {
     const Text=()=>{
       setList((prevList)=>[...prevList,"text"]);
       setTextValue("text");
@@ -13,7 +13,7 @@ function Drag({setList,setTextValue,setDate,setImage,setSign,setRadioValue}) {
     }
     const Sign1=()=>{
       setList((prevList)=>[...prevList,"sign1"]);
-      setSign("sign1");
+      setSign2("sign1");
     }
     const Date1=()=>{
       setList((prevList)=>[...prevList,"date1"]);

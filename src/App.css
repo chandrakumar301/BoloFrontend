@@ -41,6 +41,11 @@ body{
   border: 2px solid black;
   box-shadow: 2px 2px 2px blue;
 }
+.Nav h2{
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
 .Nav a{
   color: white;
   font-size: 25px;
@@ -50,7 +55,7 @@ body{
   transition: all 0.3s ease-out;
 }
 .Nav a:hover{
-  color: #00a8e8;
+  color: #fca311;
   scale: 1.1;
 }
 .dragItems{

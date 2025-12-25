@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./App.css";
+//import "./App.css";
 
 function Text({setInputValue,inputValue ,TextValue}) {
 

@@ -12,6 +12,11 @@ const ToolBar = ({setDown,Down,setConstrain}) => {
   // const Signee=()=>{
   //   setConstrain(false);
   // }
+  
+  const handleDownload = () => {
+    setDown(true);
+  };
+
   return (
     <div className='chandra'>
       <div className='Nav'>
@@ -20,7 +25,7 @@ const ToolBar = ({setDown,Down,setConstrain}) => {
         <button className='signFirst' onClick={()=>{setConstrain(true)}}>Sign First</button>
         <button>Save</button>
         <button>Send</button>
-        <button className='PDF' onClick={()=>{setDown(true)}}>Download</button>
+        <button className='PDF' onClick={handleDownload}>Download</button>
       </div>
     </div>
   )

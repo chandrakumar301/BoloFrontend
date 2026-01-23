@@ -64,14 +64,36 @@ const Right = ({
       .then(res => res.json())
       .then(data => {
         console.log("Signed PDF response:", data);
-        alert("PDF signed successfully!");
         setSignedPdfBase64(data.signedPdfBase64); // store for preview
+        
+        // 🔴 AUTO-DOWNLOAD PDF
+        downloadPDF(data.signedPdfBase64);
+        
+        alert("PDF signed and downloaded successfully!");
       })
-      .catch(err => console.error("Error signing PDF:", err));
+      .catch(err => {
+        console.error("Error signing PDF:", err);
+        alert("Error downloading PDF. Please try again.");
+      });
 
       setDown(false);
     }
   }, [Down]);
+
+  // 🔴 Function to download PDF
+  const downloadPDF = (base64Data) => {
+    try {
+      const link = document.createElement('a');
+      link.href = `data:application/pdf;base64,${base64Data}`;
+      link.download = `signed-document-${new Date().getTime()}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Download error:", error);
+      alert("Failed to download PDF");
+    }
+  };
 
   return (
     <div>

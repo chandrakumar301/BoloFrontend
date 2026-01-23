@@ -1,15 +1,48 @@
 import { useRef } from "react";
+import { useEffect } from "react";
+import './App.css'
+function Sign({Constrain, setSign2}) {
+   useEffect(() => {
+  const items = document.querySelectorAll(".sign_input");
 
-// import { useRef } from "react";
+  items.forEach((item) => {
+    let offsetX = 0;
+    let offsetY = 0;
+    let isDragging = false;
 
-function Sign() {
+    const mouseDown = (e) => {
+      isDragging = true;
+      offsetX = e.clientX - item.offsetLeft;
+      offsetY = e.clientY - item.offsetTop;
+      item.style.cursor = "grabbing";
+      
+    };
+    const mouseMove = (e) => {
+    if (!isDragging)  return;
+      item.style.left = e.clientX - offsetX + "px";
+      item.style.top = e.clientY - offsetY + "px";
+    };
+    const mouseUp = () => {
+      isDragging = false;
+      item.style.cursor = "grab";
+    };
+      item.addEventListener("mousedown", mouseDown);
+    document.addEventListener("mousemove", mouseMove);
+    document.addEventListener("mouseup", mouseUp);
+    return () => {
+      item.removeEventListener("mousedown", mouseDown);
+      document.removeEventListener("mousemove", mouseMove);
+      document.removeEventListener("mouseup", mouseUp);
+    };
+  });
+}, []);
   const abc=useRef(false);
   const canvas=useRef(null);
   const Down = () => {
     abc.current=true;
   } 
   const Move = (e) => {
-    if(abc.current){
+    if(abc.current && Constrain){
     const rect=canvas.current.getBoundingClientRect();
     const ctx=canvas.current.getContext("2d");
     const x=e.clientX-rect.left;
@@ -28,7 +61,15 @@ function Sign() {
   }
   const Up = () => {
     abc.current=false;
+    // export canvas image to parent as base64 PNG
+    try {
+      const dataUrl = canvas.current.toDataURL('image/png');
+      if (setSign2) setSign2(dataUrl);
+    } catch (e) {
+      // ignore
+    }
   }
+
 
   return (
     <canvas

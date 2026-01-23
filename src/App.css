@@ -1,23 +1,24 @@
 body{
   background-color: #ffffff;
-  overflow-y: hidden;
-  padding: 5px;
+  padding: 0.3rem;
+  margin: 0;
 }
 .app{
   display: flex;
-  direction: column;
+  flex-direction: column;
   justify-content: flex-start;
+  width: 100%;
 }
 .editorPage {
   display: flex;
   flex-direction: row;
   position: relative;   
-  overflow-x: scroll;
-  overflow-y: scroll;
-  height: 500px;
-  width: 700px;
+  overflow-x: auto;
+  overflow-y: auto;
+  height: clamp(400px, 85vh, 1122px);
+  width: clamp(280px, 90vw, 700px);
   background-color: white;
-  margin-left: 200px;
+  margin-left: clamp(10px, 5vw, 200px);
   margin-top: 0px;
   gap: 20px;
   border: 2px solid black;
@@ -27,28 +28,32 @@ body{
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  width: 100%;
 }
 .Nav{
   display: flex;
-  direction: row;
-  gap: 20px;
-  height: 100px;
-  width : 1500px;
-  margin-left: 10px;
+  flex-direction: row;
+  gap: clamp(10px, 3vw, 20px);
+  height: clamp(60px, 12vh, 100px);
+  width: 100vw;
+  margin-left: 0;
   align-items: center;
   background-color: #0d1b2a;
   justify-content: space-around;
   border: 2px solid black;
   box-shadow: 2px 2px 2px blue;
+  flex-wrap: wrap;
+  padding: 0;
 }
 .Nav h2{
   color: white;
-  font-size: 30px;
+  font-size: clamp(18px, 4vw, 30px);
   font-weight: bold;
+  margin: 0;
 }
 .Nav a{
   color: white;
-  font-size: 25px;
+  font-size: clamp(14px, 3.5vw, 25px);
   font-weight: bold;
   width: fit-content;
   height: fit-content;
@@ -61,14 +66,13 @@ body{
 .dragItems{
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: clamp(10px, 3vw, 20px);
   background-color: #e1e5f2;
-  gap: 20px;
+  gap: clamp(10px, 2vw, 20px);
   height: fit-content;
-  width: fit-content;
-  margin-left: 20px;
+  width: clamp(200px, 85vw, 400px);
+  margin-left: clamp(10px, 3vw, 20px);
   transition: all 0s ease-out;
-
 }
 .dragItems:hover{
   box-shadow: 5px 5px 5px grey;
@@ -79,14 +83,15 @@ body{
   opacity: 0.5;
 }
 .dragItems div{
-  height: 50px;
+  height: clamp(40px, 6vh, 50px);
   border: 2px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   background-color: #bfdbf7;
   cursor: pointer;
   align-content: center;
   text-align: center;
-  font-size: 25px;
+  font-size: clamp(14px, 3vw, 25px);
 }
 .dragItems div:hover{
   background-color: #007ea7;
@@ -95,33 +100,109 @@ body{
 }
 .canva{
     border:1px solid #000000;
-    width:50%;
-    height:50%;
-    margin-top: 100px;
-    margin-left: 100px;
+    width: 100%;
+    max-width: 90%;
+    height: auto;
+    aspect-ratio: 1122 / 700;
+    margin-top: clamp(20px, 5vh, 100px);
+    margin-left: clamp(10px, 3vw, 100px);
 }
 .can{
     display: flex;
     flex-direction: column;
 }
 #btn{
-    width: 150px;
-    height: 40px;
-    margin-top: 20px;
-    margin-left: 100px;
-    font-size: 16px;
+    width: clamp(120px, 30vw, 150px);
+    height: clamp(35px, 6vh, 40px);
+    margin-top: clamp(15px, 3vh, 20px);
+    margin-left: clamp(10px, 3vw, 100px);
+    font-size: clamp(12px, 2.5vw, 16px);
     font-weight: bold;
 }
 .buttons{
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap;
 }
 #Clear{
-    width: 150px;
-    height: 40px;
-    margin-top: 20px;
-    margin-left: 100px;
-    font-size: 16px;
+    width: clamp(120px, 30vw, 150px);
+    height: clamp(35px, 6vh, 40px);
+    margin-top: clamp(15px, 3vh, 20px);
+    margin-left: clamp(10px, 3vw, 100px);
+    font-size: clamp(12px, 2.5vw, 16px);
     font-weight: bold;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .editorPage {
+    margin-left: 10px;
+    width: calc(100vw - 30px);
+  }
+  
+  .Nav {
+    width: 100vw;
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  .dragItems {
+    width: calc(100vw - 30px);
+    margin-left: 15px;
+  }
+  
+  .app {
+    flex-direction: column;
+  }
+  
+  .HAndDrag {
+    width: 100%;
+  }
+  
+  .RightOne {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+  
+  .editorPage {
+    margin-left: 5px;
+    width: calc(100vw - 15px);
+    height: clamp(350px, 70vh, 600px);
+  }
+  
+  .Nav {
+    height: auto;
+    flex-wrap: wrap;
+  }
+  
+  .Nav h2 {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .dragItems {
+    width: calc(100vw - 30px);
+    margin-left: 15px;
+  }
+  
+  .dragItems div {
+    width: 100%;
+  }
+  
+  #btn, #Clear {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .canva {
+    margin-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
